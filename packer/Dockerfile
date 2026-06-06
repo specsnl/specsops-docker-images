@@ -21,13 +21,14 @@ WORKDIR /workspace
 
 COPY packer/pyproject.toml packer/uv.lock ./
 
+# hadolint ignore=DL3018
 RUN apk add --no-cache --no-progress \
-        bash=5.3.3-r1 \
-        docker-cli=29.5.2-r0 \
-        openssh-client-default=10.2_p1-r0 \
-        sshpass=1.10-r0 \
-        rsync=3.4.3-r0 \
-        git=2.52.0-r0 \
+        bash \
+        docker-cli \
+        openssh-client-default \
+        sshpass \
+        rsync \
+        git \
     && uv sync --frozen --no-dev \
     && rm pyproject.toml uv.lock \
     && packer plugins install github.com/hashicorp/docker \
