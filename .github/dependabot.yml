@@ -21,10 +21,3 @@ updates:
     labels:
       - dependencies
       - docker
-  - package-ecosystem: uv
-    directory: packer
-    schedule:
-      interval: weekly
-    labels:
-      - dependencies
-      - python
